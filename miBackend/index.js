@@ -2,13 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-const usersRouter = require("../miBackend/routes/users");
 
 app.use(express.json());
 app.use(cors());
 
-// Usamos el router de users en la ruta raíz "/"
-app.use("/", usersRouter);
+const usersRouter = require('../miBackend/routes/users');
+
+// Usar el router de users
+app.use('/', usersRouter);
 
 const port = process.env.PORT || 3002;
 

@@ -3,6 +3,9 @@ const cors = require('cors');
 const path = require('path');
 const app = express.Router(); 
 
+app.use(express.json());
+app.use(cors());
+
 const users = [
   { id: 1, name: 'Usuario 1'},
   { id: 2, name: 'Usuario 2'},
@@ -12,7 +15,6 @@ const users = [
 app.get('/', (req, res) => {
   res.json(users);
 });
-
 
 app.post('/addUser', (req, res) => {
   const { name } = req.body;
@@ -46,6 +48,5 @@ app.delete('/deleteUsers/:id', (req, res) => {
   users.splice(userIndex, 1);
   res.status(204).send();
 });
-
 
 module.exports = app;
