@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const usersRouter = require('../miBackend/routes/users');
+const usersRouter = require('./users');
 
 // Usar el router de users
 app.use('/', usersRouter);
