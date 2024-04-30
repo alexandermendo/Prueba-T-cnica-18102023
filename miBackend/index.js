@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const usersRouter = require('./users');
+const usersRouter = require('./routes/users');
 
 // Usar el router de users
 app.use('/', usersRouter);
