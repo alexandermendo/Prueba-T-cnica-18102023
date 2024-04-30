@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const router = express();
+const app = express.Router(); 
 
 const users = [
   { id: 1, name: 'Usuario 1'},
@@ -9,12 +9,12 @@ const users = [
   { id: 3, name: 'Usuario 3'},
 ]
 
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.json(users);
 });
 
 
-router.post('/addUser', (req, res) => {
+app.post('/addUser', (req, res) => {
   const { name } = req.body;
   if(!name) return res.status(400).json({error: 'El nombre es obligatorio'});
   const newUser = {
@@ -26,7 +26,7 @@ router.post('/addUser', (req, res) => {
 })
 
 
-router.put('/editUsers/:id', (req, res) => {
+app.put('/editUsers/:id', (req, res) => {
   const userId = parseInt(req.params.id);
   const { name } = req.body;
   const user = users.find((u) => u.id === userId);
@@ -37,7 +37,7 @@ router.put('/editUsers/:id', (req, res) => {
 });
 
 
-router.delete('/deleteUsers/:id', (req, res) => {
+app.delete('/deleteUsers/:id', (req, res) => {
   const userId = parseInt(req.params.id);
   const userIndex = users.findIndex((u) => u.id === userId);
   if (userIndex === -1) {
@@ -48,4 +48,4 @@ router.delete('/deleteUsers/:id', (req, res) => {
 });
 
 
-module.exports = router;
+module.exports = app;

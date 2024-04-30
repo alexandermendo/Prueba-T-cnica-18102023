@@ -7,13 +7,10 @@ const usersRouter = require("../miBackend/routes/users");
 app.use(express.json());
 app.use(cors());
 
-app.use("/users", usersRouter);
+// Usamos el router de users en la ruta raíz "/"
+app.use("/", usersRouter);
 
 const port = process.env.PORT || 3002;
-
-app.get("/", (req, res) => {
-    res.send(`Escuchando en http://localhost:${port}...`);
-});
 
 try {
     app.listen(port, () => {
