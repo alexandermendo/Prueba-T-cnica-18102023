@@ -11,9 +11,13 @@ app.use("/users", usersRouter);
 
 const port = process.env.PORT || 3002;
 
+app.get("/", (req, res) => {
+    res.send(`Escuchando en http://localhost:${port}...`);
+});
+
 try {
     app.listen(port, () => {
-        console.log(`Escuchando en el puerto ${port}...`);
+        console.log(`Escuchando en http://localhost:${port}...`);
     });
 } catch (error) {
     console.error(`Error al iniciar el servidor: ${error.message}`);
