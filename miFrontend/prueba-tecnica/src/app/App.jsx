@@ -1,6 +1,6 @@
 // import { useState } from 'react'
-import { Navbar } from '../src/app/components/navbar/Navbar';
-import { Users } from '../src/app/components/users/Users';
+import { Navbar } from './components/navbar/Navbar';
+import { Users } from './components/users/Users';
 
 function App() {
   return (
