@@ -9,7 +9,7 @@ app.use(cors());
 const usersRouter = require('./routes/users');
 
 // Usar el router de users
-app.use('/', usersRouter);
+app.use('/users', usersRouter);
 
 const port = process.env.PORT || 3002;
 
